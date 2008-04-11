@@ -1,0 +1,25 @@
+== dead simple reports ==
+
+this rails plugin allows you to easily create and view arbitrary reports of your database tables. it therefore creates a reports controller with views and a report model in your application. to create a report you simply create an instance of Report. it then appears in the list of reports where you can view it either as html table or csv data.
+
+=== to create a report ===
+
+Report.create! :name => 'My Ruby Report', :kind => 'code', :code => 'User.find(:all).map(:&name)'
+
+This will generate a report that lists all user's names. 
+
+Alternatively you can create a sql report:
+
+Report.create! :name => 'My SQL Report', :kind => 'sql', :code => 'SELECT name FROM users'
+
+to view the list of reports just go to http://localhost:3000/reports
+
+=== customizing the views ===
+
+to customzie the views you can simply edit the files under app/views/reports in your application.
+
+
+=== contact ===
+
+for hints, questions etc. please email alex[at]upstream-berlin.com
+

@@ -1,0 +1,8 @@
+
+
+To generate the neccessary migrations run
+
+script/generate dead_simple_reports
+rake db:migrate
+
+See the README for usage instructions

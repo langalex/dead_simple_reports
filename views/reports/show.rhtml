@@ -1,0 +1,17 @@
+<h1><%= h @report.name %></h1>
+
+<p>Format: <%= link_to 'CSV', :format => 'csv' %></p>
+
+<style>
+  table {
+    border-collapse: collapse;
+  }
+
+  td {
+    border: 1px solid black;
+    padding: 3px;
+  }
+</style>
+
+<%= @results %>
+

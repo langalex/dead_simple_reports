@@ -1,0 +1,7 @@
+<h1>Reports</h1>
+
+<ol>
+  <%- @reports.each do |report| -%>
+    <li><%= link_to h(report.name), :action => 'show', :id => report.id %> (<%= link_to 'CSV', :action => 'show', :id => report.id, :format => 'csv' %>)</li>
+  <%- end -%>
+</ol>
