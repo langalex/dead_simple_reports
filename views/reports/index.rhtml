@@ -2,6 +2,12 @@
 
 <ol>
   <%- @reports.each do |report| -%>
-    <li><%= link_to h(report.name), :action => 'show', :id => report.id %> (<%= link_to 'CSV', :action => 'show', :id => report.id, :format => 'csv' %>)</li>
+    <li>
+			<%= link_to h(report.name), :action => 'show', :id => report.id %>
+			(
+				<%= link_to 'CSV', :action => 'show', :id => report.id, :format => 'csv' %>
+				<%= link_to 'Excel', :action => 'show', :id => report.id, :format => 'xls' %>
+			)
+		</li>
   <%- end -%>
 </ol>

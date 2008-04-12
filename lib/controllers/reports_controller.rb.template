@@ -1,0 +1,7 @@
+require RAILS_ROOT + '/vendor/plugins/dead_simple_reports/lib/controllers/reports_controller'
+
+ReportsController.class_eval do
+  
+  # customize the controller here
+  
+end
