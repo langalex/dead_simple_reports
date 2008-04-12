@@ -1,3 +1,9 @@
+== prerequisites ==
+
+this plugin relies on the spreadsheet-excel gem to work, so you need to
+
+sudo gem install spreadsheet-excel
+
 == install ==
 
 If you are on rails edge (which supports git) you can simply do a 
