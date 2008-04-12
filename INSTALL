@@ -1,4 +1,17 @@
+== install ==
 
+If you are on rails edge (which supports git) you can simply do a 
+script/plugin install git://github.com/langalex/dead_simple_reports
+
+If not you need to do this from your rails root:
+
+cd vendor/plugins
+git clone git://github.com/langalex/dead_simple_reports --depth 1
+cd dead_simple_reports
+ruby install.rb
+cd ../../..
+
+== generate migration ==
 
 To generate the neccessary migrations run
 
