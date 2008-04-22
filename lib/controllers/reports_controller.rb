@@ -50,12 +50,20 @@ class ReportsController < ApplicationController
     worksheet = workbook.add_worksheet
     _table.each_with_index do |row, i| 
       row.each_with_index do |col, j|
-        worksheet.write i, j, Iconv.conv('ISO-8859-1', 'UTF-8', col.to_s), format # excel doesn't seem to like utf-8
+        worksheet.write i, j, convert_encoding(col.to_s), format # excel doesn't seem to like utf-8
       end
     end
     
     workbook.close
     out.string
+  end
+  
+  def convert_encoding(string)
+    begin
+      Iconv.conv('ISO-8859-1', 'UTF-8', string)
+    rescue Iconv::IllegalSequence
+      string
+    end
   end
   
 end
