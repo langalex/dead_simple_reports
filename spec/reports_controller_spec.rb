@@ -45,8 +45,15 @@ describe 'ReportsController' do
       @controller.view.should include('world')
     end
     
-    it "should render the orginal string if iconv raises an error" do
+    it "should render the orginal string if iconv raises an illegal sequence error" do
       Iconv.stub!(:conv).and_raise(Iconv::IllegalSequence.new(nil, nil, nil))
+      @controller.show.xls_view
+      @controller.view.should include('hello')
+      @controller.view.should include('world')
+    end
+    
+    it "should render the orginal string if iconv raises an illegal character error" do
+      Iconv.stub!(:conv).and_raise(Iconv::InvalidCharacter.new(nil, nil, nil))
       @controller.show.xls_view
       @controller.view.should include('hello')
       @controller.view.should include('world')

@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
   def convert_encoding(string)
     begin
       Iconv.conv('ISO-8859-1', 'UTF-8', string)
-    rescue Iconv::IllegalSequence
+    rescue Iconv::IllegalSequence, Iconv::InvalidCharacter
       string
     end
   end
